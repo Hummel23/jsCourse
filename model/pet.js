@@ -6,17 +6,21 @@ module.exports = class Pet {
         this.ownerName = ownerName;
     }
 
+    static create(pet){
+        return new Pet(pet.name, pet.age, pet.ownerName);
+    }
+
     giveResponse() {
-        let ownerName = typeof this.ownerName === 'undefined' ? "I don't " +
+        let ownerName = typeof this.ownerName === 'undefined' || this.ownerName === null ? "I don't " +
             "have an owner yet. " : "My owner is called " + this.ownerName + ".";
 
-        console.log(this.response + "... my name is " + this.name + "!" + ownerName);
+        console.log(this.response + "... my name is " + this.name + "!" + ownerName + ". \n");
     }
 
     setOwner(ownerName) {
         this.ownerName = ownerName;
         console.log(this.response + " ...I have a new owner." +
-            "His/her name is " + ownerName + "... " + this.response);
+            "His/her name is " + ownerName + "... " + this.response + " \n");
     }
 }
 
